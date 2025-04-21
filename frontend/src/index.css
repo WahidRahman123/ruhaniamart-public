@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Racing+Sans+One&family=Rancho&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+@theme {
+  --color-primaryColor: #2E8B57;
+  --color-titleColor: #FFFFFF;
+  --color-borderColor: #27039E;
+  --color-cardBorder: #A4A3A3;
+  --color-secondaryColor:#000000;
+  --color-footerBorder:#EBEBEBA6;
+  --color-bg:#92DBDA;
+
+
+  --font-navbarFont: Racing Sans One, sans-serif;
+  --font-title:  Scada , sans-serif;
+  --font-primary: Roboto, sans-serif;
+  --font-poppins:Poppins, sans-serif;
+  --font-money: Rancho, cursive;
+  
+}
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 1px #00276CE5;
+  }
+}
+
+
+
