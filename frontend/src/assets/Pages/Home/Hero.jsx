@@ -47,7 +47,8 @@ function Hero() {
           ))}
         </Slider>
       ) : (
-        <p className='text-center text-[#404040] text-2xl rounded mt-2 drop-shadow-sm font-bold'>Loading...</p>
+        // <p className='text-center text-[#404040] text-2xl rounded mt-2 drop-shadow-sm font-bold'></p>
+        <p></p>
       )}
 
 
