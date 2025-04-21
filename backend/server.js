@@ -18,16 +18,17 @@ const adminOrderRoutes = require('./routes/adminOrderRoutes');
 const bannerRoutes = require('./routes/bannerRoutes');
 
 const app = express();
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors({
+const corsOptions = {
     origin: 'https://ruhaniamart-public-tgut.vercel.app',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Authorization', 'Content-Type']
-}));
+};
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
 
-app.options('*', cors());
+app.options('*', cors(corsOptions));
 
 const PORT = process.env.PORT || 3000;
 
