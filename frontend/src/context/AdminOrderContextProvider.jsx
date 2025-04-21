@@ -65,7 +65,7 @@ const AdminOrderContextProvider = ({ children }) => {
   const updateBillStatus = async ({ id, billStatus }) => {
     try {
       const response = await axios.put(
-        `${import.meta.env.VITE_BACKEND_URI}/api/admin/orders/${id}`,
+        `${import.meta.env.VITE_BACKEND_URI}/api/admin/orders/payment/${id}`,
         { billStatus },
         {
           headers: {
