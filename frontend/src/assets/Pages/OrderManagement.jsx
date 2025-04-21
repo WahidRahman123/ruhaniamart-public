@@ -67,7 +67,7 @@ const OrderManagement = () => {
                     </select>
                   </td>
 
-                  //* Updated later for adding the paid unpaid option.
+                  {/*Updated later for adding the paid unpaid option. */}
                   <td className="p-4">
                     <select
                       value={order.isPaid}
