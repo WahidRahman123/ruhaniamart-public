@@ -45,7 +45,35 @@ const AdminOrderContextProvider = ({ children }) => {
           },
         }
       );
-      console.log(response.data)
+      // console.log(response.data)
+      const updatedOrder = response.data;
+      const orderIndex = orders.findIndex(
+        (order) => order._id === updatedOrder._id
+      );
+      if (orderIndex !== -1) {
+        setOrders((prev) =>
+          prev.map((order, index) =>
+            index === orderIndex ? updatedOrder : order
+          )
+        );
+      }
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const updateBillStatus = async ({ id, billStatus }) => {
+    try {
+      const response = await axios.put(
+        `${import.meta.env.VITE_BACKEND_URI}/api/admin/orders/${id}`,
+        { billStatus },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+          },
+        }
+      );
+      // console.log(response.data)
       const updatedOrder = response.data;
       const orderIndex = orders.findIndex(
         (order) => order._id === updatedOrder._id
@@ -82,7 +110,7 @@ const AdminOrderContextProvider = ({ children }) => {
   };
 
   return (
-    <AdminOrderContext.Provider value={{ orders, totalOrders, totalSales, fetchAllOrders, updateOrderStatus, deleteOrder }}>
+    <AdminOrderContext.Provider value={{ orders, totalOrders, totalSales, fetchAllOrders, updateOrderStatus, deleteOrder, updateBillStatus }}>
       {children}
     </AdminOrderContext.Provider>
   );

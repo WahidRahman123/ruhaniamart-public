@@ -6,7 +6,7 @@ import { AdminOrderContext } from "../../context/AdminOrderContextProvider";
 const OrderManagement = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { orders, fetchAllOrders, updateOrderStatus } =
+  const { orders, updateBillStatus, fetchAllOrders, updateOrderStatus } =
     useContext(AdminOrderContext);
 
   useEffect(() => {
@@ -19,6 +19,9 @@ const OrderManagement = () => {
 
   const handleStatusChange = async (orderId, status) => {
     await updateOrderStatus({ id: orderId, status });
+  };
+  const handleBillingChange = async (orderId, billStatus) => {
+    await updateBillStatus({ id: orderId, billStatus });
   };
 
   return (
@@ -33,6 +36,7 @@ const OrderManagement = () => {
               <th className="py-3 px-4">Customer</th>
               <th className="py-3 px-4">Total Price</th>
               <th className="py-3 px-4">Status</th>
+              <th className="py-3 px-4">Billing</th>
               <th className="py-3 px-4">Actions</th>
             </tr>
           </thead>
@@ -60,6 +64,20 @@ const OrderManagement = () => {
                       <option value="Shipped">Shipped</option>
                       <option value="Delivered">Delivered</option>
                       <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </td>
+
+                  //* Updated later for adding the paid unpaid option.
+                  <td className="p-4">
+                    <select
+                      value={order.isPaid}
+                      onChange={(e) =>
+                        handleBillingChange(order._id, e.target.value)
+                      }
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5"
+                    >
+                      <option value="true">Paid</option>
+                      <option value="false">Unpaid</option>
                     </select>
                   </td>
                   <td className="p-4">
