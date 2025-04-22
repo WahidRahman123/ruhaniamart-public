@@ -32,7 +32,7 @@ function Fulldetails() {
         const res2 = await axios.get(`${url}/api/products/similar/${id}`);
 
         setProduct(res1.data);
-        console.log(product)
+        // console.log(product)
         setSimilarProducts(res2.data);
         setIsLoading(false);
         window.scrollTo({ top: 0, behavior: "smooth" });
