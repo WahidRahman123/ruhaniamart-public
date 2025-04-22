@@ -63,7 +63,7 @@ function Details({ product }) {
             {/* Main Image */}
             <div className="border-[2px] border-primaryColor flex justify-center items-center overflow-hidden bg-bg rounded w-[300px] md:w-[360px] ">
               <img
-                src={mainImage}
+                src={mainImage.replace("/upload", "/upload/f_auto,q_auto,w_360")}
                 alt="Main Image"
                 className="bg-bg object-cover h-[300px] md:h-[360px]"
               />
@@ -74,7 +74,7 @@ function Details({ product }) {
           <div className="md:hidden flex overscroll-x-contain space-x-4 mb-4">
             {product.images.map((image, index) => (
               <img
-                src={image.url.replace("/upload", "/upload/w_150")}
+                src={image.url.replace("/upload", "/upload/f_auto,q_auto,w_150")}
                 alt={image.altText || `Thumbnail ${index}`}
                 key={index}
                 className={`w-20 h-20 object-cover rounded-lg cursor-pointer border-2 ${
