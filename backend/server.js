@@ -19,7 +19,7 @@ const bannerRoutes = require('./routes/bannerRoutes');
 
 const app = express();
 const corsOptions = {
-    origin: 'https://ruhaniamart-public-tgut.vercel.app',
+    origin: 'https://ruhaniamart-demo.vercel.app',
     // origin: '*',
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

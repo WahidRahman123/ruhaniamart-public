@@ -85,7 +85,7 @@ function Navbar({ allCategories }) {
             className="md:order-1 order-2"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            <div className="logo cursor-pointer"> Logo/Name </div>
+            <div className="logo cursor-pointer"> RuhaniaMart </div>
           </Link>
 
           {/*  input & search icon */}
