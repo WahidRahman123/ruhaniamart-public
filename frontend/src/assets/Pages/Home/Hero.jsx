@@ -41,7 +41,7 @@ function Hero() {
           {images.map((banner, index) => (
             <div key={index}>
               <div className='mx-2 px-4 sm:px-0 flex justify-center items-center '>
-                <img src={banner.image.url} alt={banner.image.altText}  className='sm:w-[980px] sm:h-[443px] mx-auto sm:mt-[24px] mt-[10px] border-1 border-borderColor rounded-[25px] w-[448px] h-[240px] ' />
+                <img src={banner.image.url.replace('/upload', '/upload/f_auto,q_auto')} alt={banner.image.altText}  className='sm:w-[980px] sm:h-[443px] mx-auto sm:mt-[24px] mt-[10px] border-1 border-borderColor rounded-[25px] w-[448px] h-[240px] ' />
               </div>
             </div>
           ))}
