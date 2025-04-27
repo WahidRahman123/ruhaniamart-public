@@ -35,11 +35,11 @@ function Registration() {
     const data = await register({ name, email, password });
     if (data.message && data.success === false) {
       toast.error(data.message, {
-        style: { backgroundColor: "#DC2626", color: "#FFFFFF", border: "none" },
+        style: { backgroundColor: "#E14D45", color: "#FFFFFF", border: "none", fontSize: "1rem" },
       });
     } else {
       toast.success("Registration Successful!", {
-        style: { backgroundColor: "#008000", color: "#FFFFFF", border: "none" },
+        style: { backgroundColor: "#2ECC71", color: "#FFFFFF", border: "none", fontSize: "1rem" },
       });
     }
   };
@@ -82,7 +82,7 @@ function Registration() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-primaryColor text-white font-poppins w-full text-center p-2 mt-3 rounded-[16px] font-bold text-xl hover:bg-green-700 hover:scale-102 transition-all duration-200 cursor-pointer"
+          className={`w-full text-center p-2 mt-3 rounded-[16px] font-poppins  font-bold text-xl ${loading ? 'bg-[#3fbf78] text-gray-300 cursor-progress': 'bg-primaryColor text-white  hover:bg-green-700 hover:scale-102 transition-all duration-200 cursor-pointer'}`}
         >
           {loading ? "Signing Up..." : "Sign Up"}
         </button>

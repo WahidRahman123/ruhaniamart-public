@@ -4,6 +4,7 @@ import { CommonContext } from "../../../context/CommonContextProvider";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import { toast } from "sonner";
 import axios from "axios";
+import { BeatLoader } from "react-spinners";
 
 const CategoryManagement = () => {
   const { fetchAllCategory, categories } = useContext(CommonContext);
@@ -11,9 +12,11 @@ const CategoryManagement = () => {
   const navigate = useNavigate();
   const [triggerUseEffect, setTriggerUseEffect] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [cid, setCid] = useState(null);
 
   const handleDeleteCategory = async (id) => {
     if (window.confirm("Are you sure you want to delete the Category?")) {
+      setCid(id);
       setLoading(true);
       try {
         await axios.delete(
@@ -106,9 +109,9 @@ const CategoryManagement = () => {
                     <button
                       disabled={loading}
                       onClick={() => handleDeleteCategory(category._id)}
-                      className="bg-red-500 cursor-pointer text-white px-2 py-1 rounded hover:bg-red-600"
+                      className={`text-center text-white py-2 rounded ${loading && cid === category._id ? 'px-[24px] bg-red-500 cursor-not-allowed' : 'px-4 hover:bg-red-600 bg-red-500 cursor-pointer'}`}
                     >
-                      Delete
+                      {loading && cid === category._id ? <BeatLoader color="#FFFFFF" size={5} /> : 'Delete'}
                     </button>
                   </td>
                 </tr>

@@ -34,11 +34,11 @@ function Login() {
     const data = await login({ email, password });
     if (data.message && data.success === false) {
       toast.error(data.message, {
-        style: { backgroundColor: '#DC2626', color: '#FFFFFF', border: 'none' }
+        style: { backgroundColor: '#E14D45', color: '#FFFFFF', border: 'none', fontSize: "1rem" }
       });
     } else {
       toast.success("Login Successful!", {
-        style: {backgroundColor: '#1bb33e', color: '#FFFFFF', border: 'none'}
+        style: {backgroundColor: '#2ECC71', color: '#FFFFFF', border: 'none', fontSize: "1rem"}
       });
     }
     
@@ -70,7 +70,7 @@ function Login() {
         <button
           type="submit"
           disabled={loading}
-          className="bg-primaryColor text-white font-poppins w-full text-center p-2 mt-3 rounded-[16px] font-bold text-xl hover:bg-green-700 hover:scale-102 transition-all duration-200 cursor-pointer"
+          className={`w-full text-center p-2 mt-3 rounded-[16px] font-poppins  font-bold text-xl ${loading ? 'bg-[#3fbf78] text-gray-300 cursor-progress': 'bg-primaryColor text-white  hover:bg-green-700 hover:scale-102 transition-all duration-200 cursor-pointer'}`}
         >
           {loading ? "Loggin in..." : "Log In"}
         </button>

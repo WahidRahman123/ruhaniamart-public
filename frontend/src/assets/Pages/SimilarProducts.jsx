@@ -9,8 +9,10 @@ const SimilarProducts = ({ similarProducts }) => {
   const { user, guestId } = useContext(AuthContext);
   const { addToCart } = useContext(CartContext);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [pid, setPid] = useState(null);
 
   const handleAddToCart = async (e, id) => {
+    setPid(id);
     e.stopPropagation();
     e.preventDefault();
     setIsButtonDisabled(true);
@@ -80,13 +82,14 @@ const SimilarProducts = ({ similarProducts }) => {
 
                       <button
                         onClick={(e) => handleAddToCart(e, product._id)}
+                        disabled={isButtonDisabled}
                         className={`mt-2 border-primaryColor border-1 rounded-4xl px-2 font-primary font-[16px] ${
-                          isButtonDisabled
-                            ? "cursor-not-allowed"
+                          isButtonDisabled && product._id === pid
+                            ? "cursor-not-allowed text-gray-600"
                             : "cursor-pointer hover:bg-primaryColor hover:text-titleColor transition-all duration-100"
                         }`}
                       >
-                        {isButtonDisabled ? "Adding..." : "Add To Cart"}
+                        {isButtonDisabled && product._id === pid ? "Adding..." : "Add To Cart"}
                       </button>
                     </>
                   ) : (

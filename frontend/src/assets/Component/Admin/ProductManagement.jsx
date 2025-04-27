@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import axios from "axios";
 import { toast } from "sonner";
+import { BeatLoader } from "react-spinners";
 
 const ProductManagement = () => {
   const [products, setProducts] = useState([]);
@@ -10,9 +11,11 @@ const ProductManagement = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [triggerUseEffect, setTriggerUseEffect] = useState(false);
+  const [pid, setPid] = useState(null);
 
   const handleDeleteProduct = async (id) => {
     if (window.confirm("Are you sure you want to delete the Product?")) {
+      setPid(id);
       setLoading(true);
       try {
         await axios.delete(
@@ -121,9 +124,9 @@ const ProductManagement = () => {
                     <button
                       onClick={() => handleDeleteProduct(product._id)}
                       disabled={loading}
-                      className="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 cursor-pointer"
+                      className={`text-center text-white py-2 rounded ${loading && product._id === pid ? 'px-[24px] bg-red-500 cursor-not-allowed' : 'px-4 hover:bg-red-600 bg-red-500 cursor-pointer'}`}
                     >
-                      Delete
+                      {loading && product._id === pid ? <BeatLoader color="#FFFFFF" size={5} /> : 'Delete'}
                     </button>
                   </td>
                 </tr>

@@ -352,7 +352,7 @@ const EditProductPage = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 cursor-pointer"
+          className={`w-full py-2 rounded-md ${loading ? 'cursor-not-allowed bg-green-400 text-gray-100' : 'bg-green-500 text-white  hover:bg-green-600 cursor-pointer'}`}
         >
           {loading ? "Editing..." : "Edit Product"}
         </button>

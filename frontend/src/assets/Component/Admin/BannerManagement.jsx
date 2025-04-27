@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthContextProvider";
 import axios from "axios";
 import { toast } from "sonner";
+import { BeatLoader } from 'react-spinners'
 
 const BannerManagement = () => {
   const navigate = useNavigate();
@@ -12,10 +13,13 @@ const BannerManagement = () => {
   const [banners, setBanners] = useState([]);
   const [file, setFile] = useState(null);
   const fileInputRef = useRef(null);
+  const [bid, setBid] = useState(null);
+  const [delLoading, setDelLoading] = useState(false);
 
   const handleDeleteBanner = async (bannerId) => {
     if (window.confirm("Are you sure you want to delete the Banner?")) {
-      setLoading(true);
+      setBid(bannerId);
+      setDelLoading(true);
       try {
         await axios.delete(
           `${import.meta.env.VITE_BACKEND_URI}/api/banner/${bannerId}`,
@@ -36,7 +40,7 @@ const BannerManagement = () => {
       } catch (error) {
         console.error(error);
       } finally {
-        setLoading(false);
+        setDelLoading(false);
       }
     }
   };
@@ -124,8 +128,8 @@ const BannerManagement = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`bg-green-500 text-white py-2 px-4 rounded  ${
-              loading ? "cursor-progress" : "cursor-pointer hover:bg-green-600"
+            className={`py-2 px-4 rounded  ${
+              loading ? "cursor-not-allowed text-gray-100 bg-green-400" : "text-white bg-green-500 cursor-pointer hover:bg-green-600"
             }`}
           >
             {loading ? "Adding..." : "Add Banner"}
@@ -150,18 +154,18 @@ const BannerManagement = () => {
                 >
                   <td className="p-4">
                     <img
-                      src={banner.image.url.replace("/upload", "/upload/w_150")}
+                      src={banner.image.url.replace("/upload", "/upload/f_auto,q_auto,w_150")}
                       alt={banner.image.altText}
                       className="w-[150px] object-cover rounded mx-auto"
                     />
                   </td>
                   <td className="p-4 text-center">
                     <button
-                      disabled={loading}
+                      disabled={delLoading}
                       onClick={() => handleDeleteBanner(banner._id)}
-                      className="bg-red-500 cursor-pointer text-white px-2 py-1 rounded hover:bg-red-600"
+                      className={`text-center text-white py-2 rounded ${delLoading && banner._id === bid ? 'px-[24px] bg-red-500 cursor-not-allowed' : 'px-4 hover:bg-red-600 bg-red-500 cursor-pointer'}`}
                     >
-                      Delete
+                      {delLoading && banner._id === bid ? <BeatLoader color="#FFFFFF" size={5} /> : 'Delete'}
                     </button>
                   </td>
                 </tr>

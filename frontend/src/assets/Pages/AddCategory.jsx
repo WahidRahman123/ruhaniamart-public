@@ -123,7 +123,7 @@ const AddCategory = () => {
           <button
             type="submit"
             disabled={loading}
-            className="cursor-pointer  bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
+            className={`py-2 px-4 rounded ${loading ? 'cursor-not-allowed bg-green-400 text-gray-100' : 'cursor-pointer bg-green-500 text-white  hover:bg-green-600'}`}
           >
             <span className="font-bold">{loading ? "Adding..." : "Add Product"}</span>
           </button>
