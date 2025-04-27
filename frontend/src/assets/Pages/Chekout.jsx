@@ -149,10 +149,10 @@ export default function Checkout() {
     }
   };
 
-  if (loading) return <p>Loading cart...</p>;
-  if (!cart || !cart.products || cart.products.length === 0) {
-    return <p>Your cart is empty</p>;
-  }
+  // if (loading) return <p>Loading cart...</p>;
+  // if (!cart || !cart.products || cart.products.length === 0) {
+  //   return <p>Your cart is empty</p>;
+  // }
 
   return (
     <section>
@@ -160,7 +160,7 @@ export default function Checkout() {
         {/* Form Section */}
         <form
           onSubmit={handleCreateCheckout}
-          className="w-full md:w-1/2 bg-white p-6 rounded-2xl shadow-md "
+          className="w-full md:w-1/2 bg-white p-6 rounded-2xl shadow-md"
         >
           <p className="m-1 tracking-[8%] font-title mt-2">Email:</p>
           <input
