@@ -52,7 +52,7 @@ const ProductDetails = ({ categoryId }) => {
   return products.length ? (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 place-content-center place-items-center">
       {products.map((product, index) => (
-        <Link key={index} to={`/product/${product._id}`}>
+        <Link key={index} to={`/product/${product._id}`} reloadDocument>
           <div className="" key={product._id}>
             <div className="xl:h-[295px] xl:w-[196px] sm:h-[270px] sm:w-[165px] h-[235px] w-[140px] 2border-[2px] border-cardBorder hover:border-[3px] shadow-xs shadow-gray-500  mt-8  flex flex-col items-center justify-center hover:scale-102  cursor-pointer hover:border-primaryColor">
               <div className="xl:h-[150px] sm:h-[135px] h-[120px] xl:w-[150px] sm:w-[130px] w-[110px] border-[1px] border-primaryColor hover:border-3 flex justify-center items-center">
