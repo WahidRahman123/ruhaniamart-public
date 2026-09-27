@@ -1,8 +1,8 @@
-# RuhaniaMart 🛍️
+# RuhaniaMart 
 
 RuhaniaMart is a full-featured e-commerce web application built using the MERN (MongoDB, Express, React, Node.js) stack. It supports user authentication, product management, a shopping cart, order placement, and admin functionality.
 
-## 🚀 Features
+## Features
 
 - User registration and authentication (JWT-based)
 - Admin dashboard for product and order management
@@ -11,7 +11,7 @@ RuhaniaMart is a full-featured e-commerce web application built using the MERN (
 - Order checkout and payment processing (integration-ready)
 - Responsive and mobile-friendly UI
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Frontend:** React.js, React Router, Axios, Tailwind CSS
 - **Backend:** Node.js, Express.js
@@ -38,7 +38,7 @@ RuhaniaMart is a full-featured e-commerce web application built using the MERN (
    # In another terminal
    cd frontend && npm start
 
-## 🧪 Admin Access
+## Admin Access
 
 Use the following credentials to log in as an admin:
 
@@ -49,8 +49,5 @@ Once logged in, the admin dashboard allows management of products, orders, and u
 
 ---
 
-### 🧪 Testing
+### Testing
   Basic test coverage can be added using Jest (backend) and React Testing Library (frontend). Work in progress.
-
-###  
-  Happy Coding! ✨
